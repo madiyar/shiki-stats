@@ -8,7 +8,7 @@ const Charts: FunctionalComponent<{ data: any[] }> = ({ data }) => {
     AxisOptions<typeof data[number]["data"][number]>
   >(
     () => ({
-      getValue: (datum) => dayjs(datum.primary).format('DD MMM YY') as unknown as Date,
+      getValue: (datum) => dayjs(datum.primary).format('MMM YY') as unknown as Date,
     }),
     []
   );
