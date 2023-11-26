@@ -30,7 +30,7 @@ export function App() {
           </svg>
         </button>
       </header>
-      <main className="flex flex-col md:flex-row p-9 gap-8 pb-32 md:pb-9">
+      <main className="flex flex-col md:flex-row p-4 md:p-9 gap-8 pb-32 md:pb-9">
         <section className={`md:block flex-1 border border-zinc-700 rounded-lg p-3 relative w-full overflow-auto ${!showChart ? 'block' : 'hidden'}`}>
           <Table data={data} isLoading={isLoading} error={error} />
         </section>

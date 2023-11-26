@@ -30,13 +30,13 @@ const Table: React.FunctionComponent<TableProps> = ({ data, isLoading, error }) 
     <table className="w-full text-sm">
       <thead className="border-b border-zinc-600">
         <tr>
-          <th className="px-4 py-3 font-medium text-left">Дата</th>
-          <th className="px-4 py-3 font-medium text-right">Запланировал</th>
-          <th className="px-4 py-3 font-medium text-right">Смотрю</th>
-          <th className="px-4 py-3 font-medium text-right">Посмотрел</th>
-          <th className="px-4 py-3 font-medium text-right">Отложил</th>
-          <th className="px-4 py-3 font-medium text-right">Бросил</th>
-          <th className="px-4 py-3 font-medium text-right">Осталось</th>
+          <th className="px-4 py-3 font-medium text-left">Date</th>
+          <th className="px-4 py-3 font-medium text-right">PTW</th>
+          <th className="px-4 py-3 font-medium text-right">Now</th>
+          <th className="px-4 py-3 font-medium text-right">Done</th>
+          <th className="px-4 py-3 font-medium text-right">Hold</th>
+          <th className="px-4 py-3 font-medium text-right">Drop</th>
+          <th className="px-4 py-3 font-medium text-right">Left</th>
         </tr>
       </thead>
       <tbody className="[&_tr:last-child]:border-0">
