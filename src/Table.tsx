@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import React from 'preact'
 
 interface TableProps {
@@ -54,17 +55,21 @@ const Table: React.FunctionComponent<TableProps> = ({ data, isLoading, error }) 
             <td colSpan={7} className="px-4 py-3">{String(error)}</td>
           </tr>
         )}
-        {data.map((item, index) => (
-          <tr key={item.date} className="border-b border-zinc-700">
-            <td className="px-4 py-3">{item.date}</td>
-            <td className="px-4 py-3 text-right">{item.ptw}</td>
-            <td className="px-4 py-3 text-right">{item.watching}</td>
-            <td className="px-4 py-3 text-right">{item.done}</td>
-            <td className="px-4 py-3 text-right">{item.onhold}</td>
-            <td className="px-4 py-3 text-right">{item.drop}</td>
-            <td className={`px-4 py-3 text-right ${getColor(index, item)}`}>{item.total}</td>
-          </tr>
-        ))}
+        {data.map((item, index) => {
+          const getYear = (date: string) => dayjs(date, 'DD.MM.YYYY').get('year');
+          const isNewYear = index > 0 && getYear(item.date) !== getYear(data[index - 1].date);
+          return (
+            <tr key={item.date} className={`${isNewYear ? "border-t-2 border-t-zinc-400" : ""} border-b border-zinc-700`}>
+              <td className="px-4 py-3">{item.date}</td>
+              <td className="px-4 py-3 text-right">{item.ptw}</td>
+              <td className="px-4 py-3 text-right">{item.watching}</td>
+              <td className="px-4 py-3 text-right">{item.done}</td>
+              <td className="px-4 py-3 text-right">{item.onhold}</td>
+              <td className="px-4 py-3 text-right">{item.drop}</td>
+              <td className={`px-4 py-3 text-right ${getColor(index, item)}`}>{item.total}</td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   )
